@@ -1,0 +1,20 @@
+.head {
+  height: 50vh;
+  font-size: 3rem;
+  width: 100%;
+  line-break: strict;
+  z-index: -1;
+}
+
+.heading {
+  letter-spacing: 1px;
+}
+
+.font-small {
+    font-size: 0.7rem;
+}
+
+.signup {
+    width: 100%;
+    font-size: 0.8rem;
+}
