@@ -4,3 +4,14 @@
     margin: 0px;
     box-sizing: border-box;
 }
+
+.bg-pattern {
+    background: url('../src/assets/pattern/shattered-island.gif');
+    background-repeat: repeat;
+    background-position: center;
+}
+
+.container, .container-fluid {
+    padding: 0px;
+    margin: 0px;
+}

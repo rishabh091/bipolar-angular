@@ -1,0 +1,33 @@
+.head {
+    height: 50vh;
+    font-size: 3rem;
+    width: 100%;
+    line-break: strict;
+    z-index: -1;
+}
+
+.heading {
+    letter-spacing: 1px;
+}
+
+.login-div {
+    width: fit-content;
+    height: fit-content;
+}
+
+.height-100 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.font-small {
+    font-size: 0.7rem;
+}
