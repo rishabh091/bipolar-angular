@@ -74,4 +74,14 @@ export class CompBookingComponent implements OnInit {
     //book here
   }
 
+  logout() {
+    this.user_service.logout()
+    .then((res) => {
+      this.router.navigate(['']);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
 }

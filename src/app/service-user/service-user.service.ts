@@ -29,6 +29,13 @@ export class ServiceUserService {
     return this.httpClient.post(url, json).toPromise();
   }
 
+  logout() {
+    localStorage.removeItem('secret');
+    let url = 'http://localhost:8080/logout';
+
+    return this.httpClient.delete(url).toPromise();
+  }
+
   checkLogin() {
     const secret = localStorage.getItem('secret');
     if(secret != null || secret != undefined) {
