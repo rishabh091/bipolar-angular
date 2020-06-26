@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceUserService } from '../service-user/service-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comp-login',
@@ -7,9 +9,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompLoginComponent implements OnInit {
 
-  constructor() { }
+  type = 'password';
+
+  number;
+  password;
+
+  constructor(private userService: ServiceUserService, private router: Router) { }
 
   ngOnInit() {
+    this.redirect();
+  }
+
+  //redirect to main page if already logged in
+  redirect() {
+    const result = this.userService.checkLogin();
+    if(result) {
+      this.router.navigate(['book']);
+    }
+  }
+
+  enterNumber(event) {
+    this.number = event.target.value;
+  }
+  enterPassword(event) {
+    this.password = event.target.value;
+  }
+
+  togglePassword() {
+    if(this.type.match('password')) {
+      this.type = 'text';
+      console.log(this.type);
+    }
+    else {
+      this.type = 'password';
+      console.log(this.type);
+    }
+  }
+
+  login() {
+    this.userService.login(this.number, this.password)
+    .then((res: any) => {
+      //save encrypted secret to localstorage
+      const secret = res.secret;
+      localStorage.setItem('secret', secret);
+
+      //redirect
+      this.router.navigate(['book']);
+    })
+    .catch((err) => {
+      alert('user not verified');
+    });
   }
 
 }

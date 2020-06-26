@@ -10,16 +10,18 @@
     <div class="text-center text-muted text-uppercase">login</div>
     <hr>
 
-    <div class="form-group">
-      <input type="number" class="form-control mb-3" placeholder="Apartment No.">
-      <input type="password" class="form-control" placeholder="Password">
-    </div>
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="switch1">
-      <label class="custom-control-label text-muted" for="switch1">Show Password</label>
-    </div>
+    <form method="dialog">
+      <div class="form-group">
+        <input type="number" class="form-control mb-3" placeholder="Apartment No." (keyup)="enterNumber($event)" required>
+        <input [type]="type" class="form-control" placeholder="Password" (keyup)="enterPassword($event)" required>
+      </div>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="switch1" (click)="togglePassword()">
+        <label class="custom-control-label text-muted" for="switch1">Show Password</label>
+      </div>
 
-    <button type="button" class="btn btn-warning pb-2 pt-2 mt-4 mb-4 rounded-0 login">LOGIN</button>
+      <button type="submit" class="btn btn-warning pb-2 pt-2 mt-4 mb-4 rounded-0 login" (click)="login()">LOGIN</button>
+    </form>
     <div class="font-small">New to the family? <a href="/signup">Signup</a></div>
   </div>
 </div>

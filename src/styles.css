@@ -2,7 +2,6 @@
 * {
   padding: 0px;
   margin: 0px;
-  box-sizing: border-box;
 }
 
 .bg-pattern {
@@ -22,7 +21,7 @@
 }
 
 .container,
-.container-fluid {
+.container-fluid, .row {
   padding: 0px;
   margin: 0px;
 }

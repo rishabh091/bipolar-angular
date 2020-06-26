@@ -18,4 +18,24 @@ export class ServiceUserService {
 
     return this.httpClient.post(url, json).toPromise();
   }
+
+  login(room, password) {
+    const url = 'http://localhost:8080/login';
+    const json = {
+      apartmentNo: room,
+      password: password
+    }
+
+    return this.httpClient.post(url, json).toPromise();
+  }
+
+  checkLogin() {
+    const secret = localStorage.getItem('secret');
+    if(secret != null || secret != undefined) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }

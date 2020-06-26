@@ -1,0 +1,74 @@
+.head {
+  font-size: 3rem;
+  width: 100%;
+  line-break: strict;
+}
+
+.heading {
+  letter-spacing: 1px;
+}
+
+.f-card {
+  width: 50vh;
+  margin: 20px;
+  height: 30vh;
+  text-align: center;
+  cursor: pointer;
+}
+
+.f-card:hover {
+  box-shadow: 0px 0px 10px darkgray;
+}
+
+.f-card > div {
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  font-size: 1.2rem;
+  padding: 20px;
+  height: inherit;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  transition-property: all;
+  transition-duration: 1s;
+}
+.f-card > div:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#badminton {
+    background-image: url('https://thebridge.in/wp-content/uploads/2020/03/BWF-696x364.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#swimming {
+    background-image: url('https://www.ecohome.net/media/articles/images/f2/9c/f29c921116e7b42501639bda77885d5051a5c8f1/thumbs/dOp8pM6ckCwo_1200x500_ZBprRkQU.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#tennis {
+    background-image: url('https://www.usta.com/content/dam/usta/Articles/article-desktop/20170201_36ft-court_A.jpg/_jcr_content/renditions/cq5dam.web.1170.585.jpeg');
+    background-position: center;
+    background-size: cover;
+}
+#gym {
+    background-image: url('https://s3.india.com/wp-content/uploads/2020/03/pjimage-6-35.jpg');
+    background-position: center;
+    background-size: cover;
+}
+#club {
+    background-image: url('https://lh3.googleusercontent.com/proxy/bYAa-GqhF6Qxa4OpiM7Wt_SBjzCenU8zhvNHWzmec_8JmVszBEKj5dRSDfDqQj8WGt__2eGToBmAJV4HyFcmYgTBkiqW0ZUVIr_bfMYlPxdbKNepnr5_dSKxdGdp3O27iGn28X7mI7P-ZHbQBOrlYH6iuh7wC80h6bEeJv_5dw');
+    background-position: center;
+    background-size: cover;
+}
+#cycle {
+    background-image: url('https://www.bbcgoodfood.com/sites/default/files/editor_files/2020/05/cycling_3.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.font-small {
+    font-size: 0.8rem;
+}
+.width-100 {
+    width: 100%;
+}

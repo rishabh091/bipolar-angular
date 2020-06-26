@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceUserService } from '../service-user/service-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comp-signup',
@@ -12,9 +13,18 @@ export class CompSignupComponent implements OnInit {
   name: String;
   password: String;
 
-  constructor(private userService: ServiceUserService) { }
+  constructor(private userService: ServiceUserService, private router: Router) { }
 
   ngOnInit() {
+    this.redirect();
+  }
+
+  //redirect to main page if already logged in
+  redirect() {
+    const result = this.userService.checkLogin();
+    if(result) {
+      this.router.navigate(['book']);
+    }
   }
 
   enterApt(event) {

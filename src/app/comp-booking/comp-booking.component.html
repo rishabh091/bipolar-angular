@@ -1,1 +1,57 @@
-<p>comp-booking works!</p>
+<!--pattern-->
+<div class="head bg-pattern text-light">
+  <h1 class="display-4 heading p-4">BiPOLAR <span class="font-weight-bold text-warning text-uppercase">lodging</span>
+  </h1>
+</div>
+
+
+<div class="container-fluid d-flex justify-content-around" style="flex-wrap: wrap;">
+  <div class="f-card border" id="tennis" data-toggle="modal" data-target="#myModal" (click)="book('tennis')">
+    <div class="center-pos">Tennis Court</div>
+  </div>
+  <div class="f-card border" id="swimming" data-toggle="modal" data-target="#myModal" (click)="book('swimming')">
+    <div class="center-pos">Swimming Pool</div>
+  </div>
+  <div class="f-card border" id="badminton" data-toggle="modal" data-target="#myModal" (click)="book('badminton')">
+    <div class="center-pos">Badminton Court</div>
+  </div>
+  <div class="f-card border" id="gym" data-toggle="modal" data-target="#myModal" (click)="book('gym')">
+    <div class="center-pos">Gym</div>
+  </div>
+  <div class="f-card border" id="club" data-toggle="modal" data-target="#myModal" (click)="book('club')">
+    <div class="center-pos">Club House</div>
+  </div>
+  <div class="f-card border" id="cycle" data-toggle="modal" data-target="#myModal" (click)="book('cycle')">
+    <div class="center-pos">Cycle Tracks</div>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header bg-pattern">
+        <h4 class="modal-title text-light text-uppercase">
+            {{ facility }}
+            <span class="font-weight-bold text-warning text-uppercase">Booking</span>
+        </h4>
+        <button type="button" class="close text-light" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form method="dialog">
+            <div class="form-group">
+                <input type="text" class="form-control mb-4 rounded-0" placeholder="Name" (keyup)="enterName($event)" required>
+                <input type="number" class="form-control mb-4 rounded-0" placeholder="Apartment No" (keyup)="enterApt($event)" required>
+                <input type="datetime-local" class="form-control mb-4 rounded-0" placeholder="Date and Time" (blur)="enterTime($event)" [min]="restrictPast()" required>
+            </div>
+
+            <button type="submit" class="btn btn-warning rounded-0 mt-3 text-uppercase font-small width-100" (submit)="finalizeBooking()">book</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
