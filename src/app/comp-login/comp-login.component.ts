@@ -51,7 +51,8 @@ export class CompLoginComponent implements OnInit {
       
       sessionStorage.setItem('aptNo', this.number);
       this.router.navigate(['/book']);
-    }, error => {
+    }, (error) => {
+      console.log(error);
       alert('Incorrect user or password');
     })
   }
