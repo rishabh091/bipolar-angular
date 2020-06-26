@@ -20,14 +20,14 @@ export class CompBookingComponent implements OnInit {
 
   constructor(private router: Router, private user_service: ServiceUserService, private booking_service: ServiceBookingService) {
     this.apartmentNo = sessionStorage.getItem('aptNo');
-   }
+  }
 
   ngOnInit() {
     this.redirect();
   }
 
   redirect() {
-    if(!this.user_service.checkLogin()) {
+    if (!this.user_service.checkLogin()) {
       this.router.navigateByUrl('signup');
     }
   }
@@ -36,15 +36,23 @@ export class CompBookingComponent implements OnInit {
   restrictPast() {
     const date = new Date();
 
+    return this.restrict(date);
+  }
+  restrictPastEnd() {
+    const date = new Date(this.start);
+
+    return this.restrict(date);
+  }
+  restrict(date) {
     let month: any = date.getMonth() + 1;
     let day: any = date.getDate();
     let year: any = date.getFullYear();
 
     //check whether month and day are single digit and add 0 in front of them
-    if(month < 10) {
+    if (month < 10) {
       month = '0' + month.toString();
     }
-    if(day < 10) {
+    if (day < 10) {
       day = '0' + day.toString();
     }
 
@@ -79,24 +87,24 @@ export class CompBookingComponent implements OnInit {
 
     //book here
     this.booking_service.book(object)
-    .then((res) => {
-      console.log(res);
+      .then((res) => {
+        console.log(res);
 
-      alert('booking successful');
-    }, (error) => {
-      console.log(error);
-      alert('Slot already booked');
-    })
+        alert('booking successful');
+      }, (error) => {
+        console.log(error);
+        alert('Slot already booked');
+      })
   }
 
   logout() {
     this.user_service.logout()
-    .then((res) => {
-      this.router.navigate(['']);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      .then((res) => {
+        this.router.navigate(['']);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 }

@@ -52,7 +52,7 @@
                 <div>From : </div>
                 <input type="datetime-local" class="form-control mb-4 rounded-0" placeholder="Date and Time" (blur)="enterTime($event)" [min]="restrictPast()" required>
                 <div>To : </div>
-                <input type="datetime-local" class="form-control mb-4 rounded-0" placeholder="Date and Time" (blur)="enterTo($event)" [min]="restrictPast()" required>
+                <input type="datetime-local" class="form-control mb-4 rounded-0" placeholder="Date and Time" (blur)="enterTo($event)" [min]="restrictPastEnd()" required>
             </div>
 
             <button type="submit" class="btn btn-warning rounded-0 mt-3 text-uppercase font-small width-100" (click)="finalBook()">book</button>
