@@ -12,7 +12,7 @@ export class ServiceUserService {
   constructor(private httpClient: HttpClient) { }
 
   save(aptNo, name, pass) {
-    const url = 'https://bipolar-test.herokuapp.com//signup';
+    const url = 'https://bipolar-test.herokuapp.com/signup';
     const json = {
       apartmentNo: aptNo,
       name: name,

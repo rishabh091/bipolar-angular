@@ -38,6 +38,11 @@ export class CompSignupComponent implements OnInit {
   }
 
   signup() {
+    if(this.aptNo <= 0) {
+      alert('Apartment number cannot be negative or zero');
+      return;
+    }
+
     this.userService.save(this.aptNo, this.name, this.password)
     .then((res) => {
       if(res) {
