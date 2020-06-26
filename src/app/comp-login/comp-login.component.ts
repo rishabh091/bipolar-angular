@@ -47,18 +47,13 @@ export class CompLoginComponent implements OnInit {
   }
 
   login() {
-    this.userService.login(this.number, this.password)
-    .then((res: any) => {
-      //save encrypted secret to localstorage
-      const secret = res.secret;
-      localStorage.setItem('secret', secret);
-
-      //redirect
-      this.router.navigate(['book']);
+    this.userService.login(this.number, this.password).subscribe((res) => {
+      
+      sessionStorage.setItem('aptNo', this.number);
+      this.router.navigate(['/book']);
+    }, error => {
+      alert('Incorrect user or password');
     })
-    .catch((err) => {
-      alert('user not verified');
-    });
   }
 
 }

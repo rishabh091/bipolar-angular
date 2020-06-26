@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceUserService {
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,19 +29,22 @@ export class ServiceUserService {
       password: password
     }
 
-    return this.httpClient.post(url, json).toPromise();
+    return this.httpClient.post(url, json).pipe(
+      map(data => {
+        sessionStorage.setItem('token', btoa(room + ':' + password));
+      }));
   }
 
   logout() {
-    localStorage.removeItem('secret');
+    sessionStorage.removeItem('token');
     let url = 'http://localhost:8080/logout';
 
     return this.httpClient.delete(url).toPromise();
   }
 
   checkLogin() {
-    const secret = localStorage.getItem('secret');
-    if(secret != null || secret != undefined) {
+    const secret = sessionStorage.getItem('token');
+    if (secret) {
       return true;
     }
     else {

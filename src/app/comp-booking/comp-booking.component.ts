@@ -13,10 +13,14 @@ export class CompBookingComponent implements OnInit {
   facility;
 
   name: String;
-  apartmentNo: Number;
-  time: String;
+  apartmentNo: any;
+  start: Date;
+  end: Date;
 
-  constructor(private router: Router, private user_service: ServiceUserService, private booking_service: ServiceBookingService) { }
+
+  constructor(private router: Router, private user_service: ServiceUserService, private booking_service: ServiceBookingService) {
+    this.apartmentNo = sessionStorage.getItem('aptNo');
+   }
 
   ngOnInit() {
     this.redirect();
@@ -53,25 +57,36 @@ export class CompBookingComponent implements OnInit {
   enterName(event) {
     this.name = event.target.value;
   }
-  enterApt(event) {
-    this.apartmentNo = event.target.value;
+  enterTo(event) {
+    this.end = new Date(event.target.value);
   }
   enterTime(event) {
-    this.time = event.target.value;
+    this.start = new Date(event.target.value);
   }
 
   book(facility) {
     this.facility = facility;
   }
 
-  finalizeBooking() {
+  finalBook() {
     let object = {
       name: this.name,
       apartmentNo: this.apartmentNo,
-      time: this.time
+      start: this.start,
+      end: this.end,
+      facility: this.facility
     }
 
     //book here
+    this.booking_service.book(object)
+    .then((res) => {
+      console.log(res);
+
+      alert('booking successful');
+    }, (error) => {
+      console.log(error);
+      alert('Slot already booked');
+    })
   }
 
   logout() {
