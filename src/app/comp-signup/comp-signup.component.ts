@@ -48,6 +48,7 @@ export class CompSignupComponent implements OnInit {
       }
     })
     .catch((err) => {
+      console.log(err);
       alert('Please fill data completely');
     }) ;
   }
