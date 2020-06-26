@@ -11,7 +11,7 @@ export class ServiceBookingService {
   }
 
   book(object) {
-    const url = 'http://localhost:8080/book';
+    const url = 'https://bipolar-test.web.app/book';
 
     return this.httpClient.post(url, object).toPromise();
   }
