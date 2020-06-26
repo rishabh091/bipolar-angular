@@ -11,7 +11,7 @@ export class ServiceBookingService {
   }
 
   book(object) {
-    const url = 'https://bipolar-test.web.app/book';
+    const url = 'https://bipolar-test.herokuapp.com/book';
 
     return this.httpClient.post(url, object).toPromise();
   }

@@ -12,7 +12,7 @@ export class ServiceUserService {
   constructor(private httpClient: HttpClient) { }
 
   save(aptNo, name, pass) {
-    const url = 'https://bipolar-test.web.app/signup';
+    const url = 'https://bipolar-test.herokuapp.com//signup';
     const json = {
       apartmentNo: aptNo,
       name: name,
@@ -23,7 +23,7 @@ export class ServiceUserService {
   }
 
   login(room, password) {
-    const url = 'https://bipolar-test.web.app/login';
+    const url = 'https://bipolar-test.herokuapp.com/login';
     const json = {
       apartmentNo: room,
       password: password
@@ -37,7 +37,7 @@ export class ServiceUserService {
 
   logout() {
     sessionStorage.removeItem('token');
-    let url = 'https://bipolar-test.web.app/logout';
+    let url = 'https://bipolar-test.herokuapp.com/logout';
 
     return this.httpClient.delete(url).toPromise();
   }
